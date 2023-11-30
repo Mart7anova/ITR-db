@@ -7,7 +7,7 @@ export interface q_user_itrAttributes {
     itr_title: string;
     itr_description?: string;
     itr_aim?: string;
-    itr_section: string;
+    itr_section: string[];
 }
 export type q_user_itrPk = "id";
 export type q_user_itrId = q_user_itr[q_user_itrPk];
@@ -19,7 +19,7 @@ export declare class q_user_itr extends Model<q_user_itrAttributes, q_user_itrCr
     itr_title: string;
     itr_description?: string;
     itr_aim?: string;
-    itr_section: string;
+    itr_section: string[];
     user: q_user;
     getUser: Sequelize.BelongsToGetAssociationMixin<q_user>;
     setUser: Sequelize.BelongsToSetAssociationMixin<q_user, q_userId>;
