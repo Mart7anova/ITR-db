@@ -1,0 +1,19 @@
+{
+  "name": "itr-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-ts": "^5.1.2",
+    "pg": "^8.11.2",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.4",
+    "sequelize-auto": "^0.8.8",
+    "typescript": "^4.8.3"
+  }
+}
