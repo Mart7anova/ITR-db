@@ -1,14 +1,26 @@
 import type { Sequelize } from "sequelize";
 import { q_article as _q_article } from "./q_article";
 import type { q_articleAttributes, q_articleCreationAttributes } from "./q_article";
+import { q_direction as _q_direction } from "./q_direction";
+import type { q_directionAttributes, q_directionCreationAttributes } from "./q_direction";
+import { q_mentor_info as _q_mentor_info } from "./q_mentor_info";
+import type { q_mentor_infoAttributes, q_mentor_infoCreationAttributes } from "./q_mentor_info";
+import { q_sub_direction as _q_sub_direction } from "./q_sub_direction";
+import type { q_sub_directionAttributes, q_sub_directionCreationAttributes } from "./q_sub_direction";
+import { q_sub_direction_user as _q_sub_direction_user } from "./q_sub_direction_user";
+import type { q_sub_direction_userAttributes, q_sub_direction_userCreationAttributes } from "./q_sub_direction_user";
 import { q_user as _q_user } from "./q_user";
 import type { q_userAttributes, q_userCreationAttributes } from "./q_user";
 import { q_user_itr as _q_user_itr } from "./q_user_itr";
 import type { q_user_itrAttributes, q_user_itrCreationAttributes } from "./q_user_itr";
-export { _q_article as q_article, _q_user as q_user, _q_user_itr as q_user_itr, };
-export type { q_articleAttributes, q_articleCreationAttributes, q_userAttributes, q_userCreationAttributes, q_user_itrAttributes, q_user_itrCreationAttributes, };
+export { _q_article as q_article, _q_direction as q_direction, _q_mentor_info as q_mentor_info, _q_sub_direction as q_sub_direction, _q_sub_direction_user as q_sub_direction_user, _q_user as q_user, _q_user_itr as q_user_itr, };
+export type { q_articleAttributes, q_articleCreationAttributes, q_directionAttributes, q_directionCreationAttributes, q_mentor_infoAttributes, q_mentor_infoCreationAttributes, q_sub_directionAttributes, q_sub_directionCreationAttributes, q_sub_direction_userAttributes, q_sub_direction_userCreationAttributes, q_userAttributes, q_userCreationAttributes, q_user_itrAttributes, q_user_itrCreationAttributes, };
 export declare function initModels(sequelize: Sequelize): {
     q_article: typeof _q_article;
+    q_direction: typeof _q_direction;
+    q_mentor_info: typeof _q_mentor_info;
+    q_sub_direction: typeof _q_sub_direction;
+    q_sub_direction_user: typeof _q_sub_direction_user;
     q_user: typeof _q_user;
     q_user_itr: typeof _q_user_itr;
 };

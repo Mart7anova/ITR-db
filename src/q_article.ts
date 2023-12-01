@@ -31,7 +31,7 @@ export class q_article extends Model<q_articleAttributes, q_articleCreationAttri
   createUser!: Sequelize.BelongsToCreateAssociationMixin<q_user>;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof q_article {
-    return sequelize.define('q_article', {
+    return q_article.init({
     id: {
       autoIncrement: true,
       autoIncrementIdentity: true,
@@ -65,6 +65,7 @@ export class q_article extends Model<q_articleAttributes, q_articleCreationAttri
       allowNull: false
     }
   }, {
+    sequelize,
     tableName: 'q_article',
     schema: 'public',
     timestamps: false,
@@ -77,6 +78,6 @@ export class q_article extends Model<q_articleAttributes, q_articleCreationAttri
         ]
       },
     ]
-  }) as typeof q_article;
+  });
   }
 }
