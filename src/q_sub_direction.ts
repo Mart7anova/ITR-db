@@ -6,7 +6,7 @@ import type { q_user, q_userId } from './q_user';
 
 export interface q_sub_directionAttributes {
   id: number;
-  id_direction: number;
+  direction_id: number;
   name: string;
   desc?: string;
 }
@@ -18,15 +18,15 @@ export type q_sub_directionCreationAttributes = Optional<q_sub_directionAttribut
 
 export class q_sub_direction extends Model<q_sub_directionAttributes, q_sub_directionCreationAttributes> implements q_sub_directionAttributes {
   id!: number;
-  id_direction!: number;
+  direction_id!: number;
   name!: string;
   desc?: string;
 
-  // q_sub_direction belongsTo q_direction via id_direction
-  id_direction_q_direction!: q_direction;
-  getId_direction_q_direction!: Sequelize.BelongsToGetAssociationMixin<q_direction>;
-  setId_direction_q_direction!: Sequelize.BelongsToSetAssociationMixin<q_direction, q_directionId>;
-  createId_direction_q_direction!: Sequelize.BelongsToCreateAssociationMixin<q_direction>;
+  // q_sub_direction belongsTo q_direction via direction_id
+  direction!: q_direction;
+  getDirection!: Sequelize.BelongsToGetAssociationMixin<q_direction>;
+  setDirection!: Sequelize.BelongsToSetAssociationMixin<q_direction, q_directionId>;
+  createDirection!: Sequelize.BelongsToCreateAssociationMixin<q_direction>;
   // q_sub_direction hasMany q_sub_direction_user via sub_direction_id
   q_sub_direction_users!: q_sub_direction_user[];
   getQ_sub_direction_users!: Sequelize.HasManyGetAssociationsMixin<q_sub_direction_user>;
@@ -61,7 +61,7 @@ export class q_sub_direction extends Model<q_sub_directionAttributes, q_sub_dire
       allowNull: false,
       primaryKey: true
     },
-    id_direction: {
+    direction_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
       references: {

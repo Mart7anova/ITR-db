@@ -15,7 +15,7 @@ export class q_direction extends Model<q_directionAttributes, q_directionCreatio
   id!: number;
   name!: string;
 
-  // q_direction hasMany q_sub_direction via id_direction
+  // q_direction hasMany q_sub_direction via direction_id
   q_sub_directions!: q_sub_direction[];
   getQ_sub_directions!: Sequelize.HasManyGetAssociationsMixin<q_sub_direction>;
   setQ_sub_directions!: Sequelize.HasManySetAssociationsMixin<q_sub_direction, q_sub_directionId>;

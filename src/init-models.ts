@@ -52,8 +52,8 @@ export function initModels(sequelize: Sequelize) {
 
   q_sub_direction.belongsToMany(q_user, { as: 'user_id_q_users', through: q_sub_direction_user, foreignKey: "sub_direction_id", otherKey: "user_id" });
   q_user.belongsToMany(q_sub_direction, { as: 'sub_direction_id_q_sub_directions', through: q_sub_direction_user, foreignKey: "user_id", otherKey: "sub_direction_id" });
-  q_sub_direction.belongsTo(q_direction, { as: "id_direction_q_direction", foreignKey: "id_direction"});
-  q_direction.hasMany(q_sub_direction, { as: "q_sub_directions", foreignKey: "id_direction"});
+  q_sub_direction.belongsTo(q_direction, { as: "direction", foreignKey: "direction_id"});
+  q_direction.hasMany(q_sub_direction, { as: "q_sub_directions", foreignKey: "direction_id"});
   q_sub_direction_user.belongsTo(q_sub_direction, { as: "sub_direction", foreignKey: "sub_direction_id"});
   q_sub_direction.hasMany(q_sub_direction_user, { as: "q_sub_direction_users", foreignKey: "sub_direction_id"});
   q_article.belongsTo(q_user, { as: "user", foreignKey: "user_id"});
