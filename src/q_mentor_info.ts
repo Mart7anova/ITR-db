@@ -32,7 +32,7 @@ export class q_mentor_info extends Model<q_mentor_infoAttributes, q_mentor_infoC
   createUser!: Sequelize.BelongsToCreateAssociationMixin<q_user>;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof q_mentor_info {
-    return q_mentor_info.init({
+    return sequelize.define('q_mentor_info', {
     id: {
       autoIncrement: true,
       autoIncrementIdentity: true,
@@ -69,7 +69,6 @@ export class q_mentor_info extends Model<q_mentor_infoAttributes, q_mentor_infoC
       allowNull: false
     }
   }, {
-    sequelize,
     tableName: 'q_mentor_info',
     schema: 'public',
     timestamps: false,
@@ -82,6 +81,6 @@ export class q_mentor_info extends Model<q_mentor_infoAttributes, q_mentor_infoC
         ]
       },
     ]
-  });
+  }) as typeof q_mentor_info;
   }
 }

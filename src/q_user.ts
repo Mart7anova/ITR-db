@@ -98,7 +98,7 @@ export class q_user extends Model<q_userAttributes, q_userCreationAttributes> im
   countQ_user_itrs!: Sequelize.HasManyCountAssociationsMixin;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof q_user {
-    return q_user.init({
+    return sequelize.define('q_user', {
     id: {
       autoIncrement: true,
       autoIncrementIdentity: true,
@@ -145,7 +145,6 @@ export class q_user extends Model<q_userAttributes, q_userCreationAttributes> im
       allowNull: true
     }
   }, {
-    sequelize,
     tableName: 'q_user',
     schema: 'public',
     timestamps: false,
@@ -158,6 +157,6 @@ export class q_user extends Model<q_userAttributes, q_userCreationAttributes> im
         ]
       },
     ]
-  });
+  }) as typeof q_user;
   }
 }

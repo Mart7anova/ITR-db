@@ -28,7 +28,7 @@ export class q_sub_direction_user extends Model<q_sub_direction_userAttributes, 
   createUser!: Sequelize.BelongsToCreateAssociationMixin<q_user>;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof q_sub_direction_user {
-    return q_sub_direction_user.init({
+    return sequelize.define('q_sub_direction_user', {
     user_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -48,7 +48,6 @@ export class q_sub_direction_user extends Model<q_sub_direction_userAttributes, 
       }
     }
   }, {
-    sequelize,
     tableName: 'q_sub_direction_user',
     schema: 'public',
     timestamps: false,
@@ -62,6 +61,6 @@ export class q_sub_direction_user extends Model<q_sub_direction_userAttributes, 
         ]
       },
     ]
-  });
+  }) as typeof q_sub_direction_user;
   }
 }

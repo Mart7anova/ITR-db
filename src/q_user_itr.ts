@@ -31,7 +31,7 @@ export class q_user_itr extends Model<q_user_itrAttributes, q_user_itrCreationAt
   createUser!: Sequelize.BelongsToCreateAssociationMixin<q_user>;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof q_user_itr {
-    return q_user_itr.init({
+    return sequelize.define('q_user_itr', {
     id: {
       autoIncrement: true,
       autoIncrementIdentity: true,
@@ -64,7 +64,6 @@ export class q_user_itr extends Model<q_user_itrAttributes, q_user_itrCreationAt
       allowNull: false
     }
   }, {
-    sequelize,
     tableName: 'q_user_itr',
     schema: 'public',
     timestamps: false,
@@ -77,6 +76,6 @@ export class q_user_itr extends Model<q_user_itrAttributes, q_user_itrCreationAt
         ]
       },
     ]
-  });
+  }) as typeof q_user_itr;
   }
 }

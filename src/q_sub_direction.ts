@@ -53,7 +53,7 @@ export class q_sub_direction extends Model<q_sub_directionAttributes, q_sub_dire
   countUser_id_q_users!: Sequelize.BelongsToManyCountAssociationsMixin;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof q_sub_direction {
-    return q_sub_direction.init({
+    return sequelize.define('q_sub_direction', {
     id: {
       autoIncrement: true,
       autoIncrementIdentity: true,
@@ -78,7 +78,6 @@ export class q_sub_direction extends Model<q_sub_directionAttributes, q_sub_dire
       allowNull: true
     }
   }, {
-    sequelize,
     tableName: 'q_sub_direction',
     schema: 'public',
     timestamps: false,
@@ -91,6 +90,6 @@ export class q_sub_direction extends Model<q_sub_directionAttributes, q_sub_dire
         ]
       },
     ]
-  });
+  }) as typeof q_sub_direction;
   }
 }

@@ -29,7 +29,7 @@ export class q_direction extends Model<q_directionAttributes, q_directionCreatio
   countQ_sub_directions!: Sequelize.HasManyCountAssociationsMixin;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof q_direction {
-    return q_direction.init({
+    return sequelize.define('q_direction', {
     id: {
       autoIncrement: true,
       autoIncrementIdentity: true,
@@ -42,7 +42,6 @@ export class q_direction extends Model<q_directionAttributes, q_directionCreatio
       allowNull: false
     }
   }, {
-    sequelize,
     tableName: 'q_direction',
     schema: 'public',
     timestamps: false,
@@ -55,6 +54,6 @@ export class q_direction extends Model<q_directionAttributes, q_directionCreatio
         ]
       },
     ]
-  });
+  }) as typeof q_direction;
   }
 }
