@@ -5,6 +5,10 @@ import { q_direction as _q_direction } from "./q_direction";
 import type { q_directionAttributes, q_directionCreationAttributes } from "./q_direction";
 import { q_itr as _q_itr } from "./q_itr";
 import type { q_itrAttributes, q_itrCreationAttributes } from "./q_itr";
+import { q_itr_section as _q_itr_section } from "./q_itr_section";
+import type { q_itr_sectionAttributes, q_itr_sectionCreationAttributes } from "./q_itr_section";
+import { q_itr_test as _q_itr_test } from "./q_itr_test";
+import type { q_itr_testAttributes, q_itr_testCreationAttributes } from "./q_itr_test";
 import { q_itr_user as _q_itr_user } from "./q_itr_user";
 import type { q_itr_userAttributes, q_itr_userCreationAttributes } from "./q_itr_user";
 import { q_mentor_info as _q_mentor_info } from "./q_mentor_info";
@@ -20,6 +24,8 @@ export {
   _q_article as q_article,
   _q_direction as q_direction,
   _q_itr as q_itr,
+  _q_itr_section as q_itr_section,
+  _q_itr_test as q_itr_test,
   _q_itr_user as q_itr_user,
   _q_mentor_info as q_mentor_info,
   _q_sub_direction as q_sub_direction,
@@ -34,6 +40,10 @@ export type {
   q_directionCreationAttributes,
   q_itrAttributes,
   q_itrCreationAttributes,
+  q_itr_sectionAttributes,
+  q_itr_sectionCreationAttributes,
+  q_itr_testAttributes,
+  q_itr_testCreationAttributes,
   q_itr_userAttributes,
   q_itr_userCreationAttributes,
   q_mentor_infoAttributes,
@@ -50,6 +60,8 @@ export function initModels(sequelize: Sequelize) {
   const q_article = _q_article.initModel(sequelize);
   const q_direction = _q_direction.initModel(sequelize);
   const q_itr = _q_itr.initModel(sequelize);
+  const q_itr_section = _q_itr_section.initModel(sequelize);
+  const q_itr_test = _q_itr_test.initModel(sequelize);
   const q_itr_user = _q_itr_user.initModel(sequelize);
   const q_mentor_info = _q_mentor_info.initModel(sequelize);
   const q_sub_direction = _q_sub_direction.initModel(sequelize);
@@ -64,6 +76,8 @@ export function initModels(sequelize: Sequelize) {
   q_direction.hasMany(q_sub_direction, { as: "q_sub_directions", foreignKey: "direction_id"});
   q_itr_user.belongsTo(q_itr, { as: "itr", foreignKey: "itr_id"});
   q_itr.hasMany(q_itr_user, { as: "q_itr_users", foreignKey: "itr_id"});
+  q_itr_test.belongsTo(q_itr_section, { as: "section", foreignKey: "section_id"});
+  q_itr_section.hasMany(q_itr_test, { as: "q_itr_tests", foreignKey: "section_id"});
   q_sub_direction_user.belongsTo(q_sub_direction, { as: "sub_direction", foreignKey: "sub_direction_id"});
   q_sub_direction.hasMany(q_sub_direction_user, { as: "q_sub_direction_users", foreignKey: "sub_direction_id"});
   q_article.belongsTo(q_user, { as: "user", foreignKey: "user_id"});
@@ -81,6 +95,8 @@ export function initModels(sequelize: Sequelize) {
     q_article: q_article,
     q_direction: q_direction,
     q_itr: q_itr,
+    q_itr_section: q_itr_section,
+    q_itr_test: q_itr_test,
     q_itr_user: q_itr_user,
     q_mentor_info: q_mentor_info,
     q_sub_direction: q_sub_direction,

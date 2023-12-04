@@ -8,7 +8,6 @@ export interface q_itrAttributes {
     itr_title: string;
     itr_description?: string;
     itr_aim?: string;
-    itr_section: string[];
 }
 export type q_itrPk = "id";
 export type q_itrId = q_itr[q_itrPk];
@@ -20,7 +19,6 @@ export declare class q_itr extends Model<q_itrAttributes, q_itrCreationAttribute
     itr_title: string;
     itr_description?: string;
     itr_aim?: string;
-    itr_section: string[];
     q_itr_users: q_itr_user[];
     getQ_itr_users: Sequelize.HasManyGetAssociationsMixin<q_itr_user>;
     setQ_itr_users: Sequelize.HasManySetAssociationsMixin<q_itr_user, q_itr_userId>;

@@ -5,6 +5,10 @@ import { q_direction as _q_direction } from "./q_direction";
 import type { q_directionAttributes, q_directionCreationAttributes } from "./q_direction";
 import { q_itr as _q_itr } from "./q_itr";
 import type { q_itrAttributes, q_itrCreationAttributes } from "./q_itr";
+import { q_itr_section as _q_itr_section } from "./q_itr_section";
+import type { q_itr_sectionAttributes, q_itr_sectionCreationAttributes } from "./q_itr_section";
+import { q_itr_test as _q_itr_test } from "./q_itr_test";
+import type { q_itr_testAttributes, q_itr_testCreationAttributes } from "./q_itr_test";
 import { q_itr_user as _q_itr_user } from "./q_itr_user";
 import type { q_itr_userAttributes, q_itr_userCreationAttributes } from "./q_itr_user";
 import { q_mentor_info as _q_mentor_info } from "./q_mentor_info";
@@ -15,12 +19,14 @@ import { q_sub_direction_user as _q_sub_direction_user } from "./q_sub_direction
 import type { q_sub_direction_userAttributes, q_sub_direction_userCreationAttributes } from "./q_sub_direction_user";
 import { q_user as _q_user } from "./q_user";
 import type { q_userAttributes, q_userCreationAttributes } from "./q_user";
-export { _q_article as q_article, _q_direction as q_direction, _q_itr as q_itr, _q_itr_user as q_itr_user, _q_mentor_info as q_mentor_info, _q_sub_direction as q_sub_direction, _q_sub_direction_user as q_sub_direction_user, _q_user as q_user, };
-export type { q_articleAttributes, q_articleCreationAttributes, q_directionAttributes, q_directionCreationAttributes, q_itrAttributes, q_itrCreationAttributes, q_itr_userAttributes, q_itr_userCreationAttributes, q_mentor_infoAttributes, q_mentor_infoCreationAttributes, q_sub_directionAttributes, q_sub_directionCreationAttributes, q_sub_direction_userAttributes, q_sub_direction_userCreationAttributes, q_userAttributes, q_userCreationAttributes, };
+export { _q_article as q_article, _q_direction as q_direction, _q_itr as q_itr, _q_itr_section as q_itr_section, _q_itr_test as q_itr_test, _q_itr_user as q_itr_user, _q_mentor_info as q_mentor_info, _q_sub_direction as q_sub_direction, _q_sub_direction_user as q_sub_direction_user, _q_user as q_user, };
+export type { q_articleAttributes, q_articleCreationAttributes, q_directionAttributes, q_directionCreationAttributes, q_itrAttributes, q_itrCreationAttributes, q_itr_sectionAttributes, q_itr_sectionCreationAttributes, q_itr_testAttributes, q_itr_testCreationAttributes, q_itr_userAttributes, q_itr_userCreationAttributes, q_mentor_infoAttributes, q_mentor_infoCreationAttributes, q_sub_directionAttributes, q_sub_directionCreationAttributes, q_sub_direction_userAttributes, q_sub_direction_userCreationAttributes, q_userAttributes, q_userCreationAttributes, };
 export declare function initModels(sequelize: Sequelize): {
     q_article: typeof _q_article;
     q_direction: typeof _q_direction;
     q_itr: typeof _q_itr;
+    q_itr_section: typeof _q_itr_section;
+    q_itr_test: typeof _q_itr_test;
     q_itr_user: typeof _q_itr_user;
     q_mentor_info: typeof _q_mentor_info;
     q_sub_direction: typeof _q_sub_direction;

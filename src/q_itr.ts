@@ -9,7 +9,6 @@ export interface q_itrAttributes {
   itr_title: string;
   itr_description?: string;
   itr_aim?: string;
-  itr_section: string[];
 }
 
 export type q_itrPk = "id";
@@ -23,7 +22,6 @@ export class q_itr extends Model<q_itrAttributes, q_itrCreationAttributes> imple
   itr_title!: string;
   itr_description?: string;
   itr_aim?: string;
-  itr_section!: string[];
 
   // q_itr hasMany q_itr_user via itr_id
   q_itr_users!: q_itr_user[];
@@ -83,10 +81,6 @@ export class q_itr extends Model<q_itrAttributes, q_itrCreationAttributes> imple
     itr_aim: {
       type: DataTypes.STRING(128),
       allowNull: true
-    },
-    itr_section: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false
     }
   }, {
     tableName: 'q_itr',
