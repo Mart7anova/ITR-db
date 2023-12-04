@@ -1,10 +1,11 @@
 import * as Sequelize from 'sequelize';
 import { DataTypes, Model, Optional } from 'sequelize';
 import type { q_article, q_articleId } from './q_article';
+import type { q_itr, q_itrId } from './q_itr';
+import type { q_itr_user, q_itr_userId } from './q_itr_user';
 import type { q_mentor_info, q_mentor_infoId } from './q_mentor_info';
 import type { q_sub_direction, q_sub_directionId } from './q_sub_direction';
 import type { q_sub_direction_user, q_sub_direction_userId } from './q_sub_direction_user';
-import type { q_user_itr, q_user_itrId } from './q_user_itr';
 
 export interface q_userAttributes {
   id: number;
@@ -48,6 +49,42 @@ export class q_user extends Model<q_userAttributes, q_userCreationAttributes> im
   hasQ_article!: Sequelize.HasManyHasAssociationMixin<q_article, q_articleId>;
   hasQ_articles!: Sequelize.HasManyHasAssociationsMixin<q_article, q_articleId>;
   countQ_articles!: Sequelize.HasManyCountAssociationsMixin;
+  // q_user hasMany q_itr via user_id
+  q_itrs!: q_itr[];
+  getQ_itrs!: Sequelize.HasManyGetAssociationsMixin<q_itr>;
+  setQ_itrs!: Sequelize.HasManySetAssociationsMixin<q_itr, q_itrId>;
+  addQ_itr!: Sequelize.HasManyAddAssociationMixin<q_itr, q_itrId>;
+  addQ_itrs!: Sequelize.HasManyAddAssociationsMixin<q_itr, q_itrId>;
+  createQ_itr!: Sequelize.HasManyCreateAssociationMixin<q_itr>;
+  removeQ_itr!: Sequelize.HasManyRemoveAssociationMixin<q_itr, q_itrId>;
+  removeQ_itrs!: Sequelize.HasManyRemoveAssociationsMixin<q_itr, q_itrId>;
+  hasQ_itr!: Sequelize.HasManyHasAssociationMixin<q_itr, q_itrId>;
+  hasQ_itrs!: Sequelize.HasManyHasAssociationsMixin<q_itr, q_itrId>;
+  countQ_itrs!: Sequelize.HasManyCountAssociationsMixin;
+  // q_user belongsToMany q_itr via user_id and itr_id
+  itr_id_q_itrs!: q_itr[];
+  getItr_id_q_itrs!: Sequelize.BelongsToManyGetAssociationsMixin<q_itr>;
+  setItr_id_q_itrs!: Sequelize.BelongsToManySetAssociationsMixin<q_itr, q_itrId>;
+  addItr_id_q_itr!: Sequelize.BelongsToManyAddAssociationMixin<q_itr, q_itrId>;
+  addItr_id_q_itrs!: Sequelize.BelongsToManyAddAssociationsMixin<q_itr, q_itrId>;
+  createItr_id_q_itr!: Sequelize.BelongsToManyCreateAssociationMixin<q_itr>;
+  removeItr_id_q_itr!: Sequelize.BelongsToManyRemoveAssociationMixin<q_itr, q_itrId>;
+  removeItr_id_q_itrs!: Sequelize.BelongsToManyRemoveAssociationsMixin<q_itr, q_itrId>;
+  hasItr_id_q_itr!: Sequelize.BelongsToManyHasAssociationMixin<q_itr, q_itrId>;
+  hasItr_id_q_itrs!: Sequelize.BelongsToManyHasAssociationsMixin<q_itr, q_itrId>;
+  countItr_id_q_itrs!: Sequelize.BelongsToManyCountAssociationsMixin;
+  // q_user hasMany q_itr_user via user_id
+  q_itr_users!: q_itr_user[];
+  getQ_itr_users!: Sequelize.HasManyGetAssociationsMixin<q_itr_user>;
+  setQ_itr_users!: Sequelize.HasManySetAssociationsMixin<q_itr_user, q_itr_userId>;
+  addQ_itr_user!: Sequelize.HasManyAddAssociationMixin<q_itr_user, q_itr_userId>;
+  addQ_itr_users!: Sequelize.HasManyAddAssociationsMixin<q_itr_user, q_itr_userId>;
+  createQ_itr_user!: Sequelize.HasManyCreateAssociationMixin<q_itr_user>;
+  removeQ_itr_user!: Sequelize.HasManyRemoveAssociationMixin<q_itr_user, q_itr_userId>;
+  removeQ_itr_users!: Sequelize.HasManyRemoveAssociationsMixin<q_itr_user, q_itr_userId>;
+  hasQ_itr_user!: Sequelize.HasManyHasAssociationMixin<q_itr_user, q_itr_userId>;
+  hasQ_itr_users!: Sequelize.HasManyHasAssociationsMixin<q_itr_user, q_itr_userId>;
+  countQ_itr_users!: Sequelize.HasManyCountAssociationsMixin;
   // q_user hasMany q_mentor_info via user_id
   q_mentor_infos!: q_mentor_info[];
   getQ_mentor_infos!: Sequelize.HasManyGetAssociationsMixin<q_mentor_info>;
@@ -84,18 +121,6 @@ export class q_user extends Model<q_userAttributes, q_userCreationAttributes> im
   hasQ_sub_direction_user!: Sequelize.HasManyHasAssociationMixin<q_sub_direction_user, q_sub_direction_userId>;
   hasQ_sub_direction_users!: Sequelize.HasManyHasAssociationsMixin<q_sub_direction_user, q_sub_direction_userId>;
   countQ_sub_direction_users!: Sequelize.HasManyCountAssociationsMixin;
-  // q_user hasMany q_user_itr via user_id
-  q_user_itrs!: q_user_itr[];
-  getQ_user_itrs!: Sequelize.HasManyGetAssociationsMixin<q_user_itr>;
-  setQ_user_itrs!: Sequelize.HasManySetAssociationsMixin<q_user_itr, q_user_itrId>;
-  addQ_user_itr!: Sequelize.HasManyAddAssociationMixin<q_user_itr, q_user_itrId>;
-  addQ_user_itrs!: Sequelize.HasManyAddAssociationsMixin<q_user_itr, q_user_itrId>;
-  createQ_user_itr!: Sequelize.HasManyCreateAssociationMixin<q_user_itr>;
-  removeQ_user_itr!: Sequelize.HasManyRemoveAssociationMixin<q_user_itr, q_user_itrId>;
-  removeQ_user_itrs!: Sequelize.HasManyRemoveAssociationsMixin<q_user_itr, q_user_itrId>;
-  hasQ_user_itr!: Sequelize.HasManyHasAssociationMixin<q_user_itr, q_user_itrId>;
-  hasQ_user_itrs!: Sequelize.HasManyHasAssociationsMixin<q_user_itr, q_user_itrId>;
-  countQ_user_itrs!: Sequelize.HasManyCountAssociationsMixin;
 
   static initModel(sequelize: Sequelize.Sequelize): typeof q_user {
     return sequelize.define('q_user', {

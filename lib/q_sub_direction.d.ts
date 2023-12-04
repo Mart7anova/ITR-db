@@ -33,16 +33,16 @@ export declare class q_sub_direction extends Model<q_sub_directionAttributes, q_
     hasQ_sub_direction_user: Sequelize.HasManyHasAssociationMixin<q_sub_direction_user, q_sub_direction_userId>;
     hasQ_sub_direction_users: Sequelize.HasManyHasAssociationsMixin<q_sub_direction_user, q_sub_direction_userId>;
     countQ_sub_direction_users: Sequelize.HasManyCountAssociationsMixin;
-    user_id_q_users: q_user[];
-    getUser_id_q_users: Sequelize.BelongsToManyGetAssociationsMixin<q_user>;
-    setUser_id_q_users: Sequelize.BelongsToManySetAssociationsMixin<q_user, q_userId>;
-    addUser_id_q_user: Sequelize.BelongsToManyAddAssociationMixin<q_user, q_userId>;
-    addUser_id_q_users: Sequelize.BelongsToManyAddAssociationsMixin<q_user, q_userId>;
-    createUser_id_q_user: Sequelize.BelongsToManyCreateAssociationMixin<q_user>;
-    removeUser_id_q_user: Sequelize.BelongsToManyRemoveAssociationMixin<q_user, q_userId>;
-    removeUser_id_q_users: Sequelize.BelongsToManyRemoveAssociationsMixin<q_user, q_userId>;
-    hasUser_id_q_user: Sequelize.BelongsToManyHasAssociationMixin<q_user, q_userId>;
-    hasUser_id_q_users: Sequelize.BelongsToManyHasAssociationsMixin<q_user, q_userId>;
-    countUser_id_q_users: Sequelize.BelongsToManyCountAssociationsMixin;
+    user_id_q_user_q_sub_direction_users: q_user[];
+    getUser_id_q_user_q_sub_direction_users: Sequelize.BelongsToManyGetAssociationsMixin<q_user>;
+    setUser_id_q_user_q_sub_direction_users: Sequelize.BelongsToManySetAssociationsMixin<q_user, q_userId>;
+    addUser_id_q_user_q_sub_direction_user: Sequelize.BelongsToManyAddAssociationMixin<q_user, q_userId>;
+    addUser_id_q_user_q_sub_direction_users: Sequelize.BelongsToManyAddAssociationsMixin<q_user, q_userId>;
+    createUser_id_q_user_q_sub_direction_user: Sequelize.BelongsToManyCreateAssociationMixin<q_user>;
+    removeUser_id_q_user_q_sub_direction_user: Sequelize.BelongsToManyRemoveAssociationMixin<q_user, q_userId>;
+    removeUser_id_q_user_q_sub_direction_users: Sequelize.BelongsToManyRemoveAssociationsMixin<q_user, q_userId>;
+    hasUser_id_q_user_q_sub_direction_user: Sequelize.BelongsToManyHasAssociationMixin<q_user, q_userId>;
+    hasUser_id_q_user_q_sub_direction_users: Sequelize.BelongsToManyHasAssociationsMixin<q_user, q_userId>;
+    countUser_id_q_user_q_sub_direction_users: Sequelize.BelongsToManyCountAssociationsMixin;
     static initModel(sequelize: Sequelize.Sequelize): typeof q_sub_direction;
 }
