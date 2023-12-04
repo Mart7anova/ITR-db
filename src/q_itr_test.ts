@@ -7,7 +7,7 @@ export interface q_itr_testAttributes {
   section_id: number;
   question: string;
   answer: string[];
-  right_anser_id: number;
+  right_answer_id: number;
 }
 
 export type q_itr_testPk = "id";
@@ -19,7 +19,7 @@ export class q_itr_test extends Model<q_itr_testAttributes, q_itr_testCreationAt
   section_id!: number;
   question!: string;
   answer!: string[];
-  right_anser_id!: number;
+  right_answer_id!: number;
 
   // q_itr_test belongsTo q_itr_section via section_id
   section!: q_itr_section;
@@ -52,7 +52,7 @@ export class q_itr_test extends Model<q_itr_testAttributes, q_itr_testCreationAt
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     },
-    right_anser_id: {
+    right_answer_id: {
       type: DataTypes.SMALLINT,
       allowNull: false
     }

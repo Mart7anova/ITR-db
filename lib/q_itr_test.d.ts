@@ -6,7 +6,7 @@ export interface q_itr_testAttributes {
     section_id: number;
     question: string;
     answer: string[];
-    right_anser_id: number;
+    right_answer_id: number;
 }
 export type q_itr_testPk = "id";
 export type q_itr_testId = q_itr_test[q_itr_testPk];
@@ -16,7 +16,7 @@ export declare class q_itr_test extends Model<q_itr_testAttributes, q_itr_testCr
     section_id: number;
     question: string;
     answer: string[];
-    right_anser_id: number;
+    right_answer_id: number;
     section: q_itr_section;
     getSection: Sequelize.BelongsToGetAssociationMixin<q_itr_section>;
     setSection: Sequelize.BelongsToSetAssociationMixin<q_itr_section, q_itr_sectionId>;
