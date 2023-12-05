@@ -9,6 +9,7 @@ export interface q_mentor_infoAttributes {
     education: string[];
     cost: number;
     about: string;
+    isAdopted: boolean;
 }
 export type q_mentor_infoPk = "id";
 export type q_mentor_infoId = q_mentor_info[q_mentor_infoPk];
@@ -21,6 +22,7 @@ export declare class q_mentor_info extends Model<q_mentor_infoAttributes, q_ment
     education: string[];
     cost: number;
     about: string;
+    isAdopted: boolean;
     user: q_user;
     getUser: Sequelize.BelongsToGetAssociationMixin<q_user>;
     setUser: Sequelize.BelongsToSetAssociationMixin<q_user, q_userId>;

@@ -10,6 +10,7 @@ export interface q_mentor_infoAttributes {
   education: string[];
   cost: number;
   about: string;
+  isAdopted: boolean;
 }
 
 export type q_mentor_infoPk = "id";
@@ -24,6 +25,7 @@ export class q_mentor_info extends Model<q_mentor_infoAttributes, q_mentor_infoC
   education!: string[];
   cost!: number;
   about!: string;
+  isAdopted!: boolean;
 
   // q_mentor_info belongsTo q_user via user_id
   user!: q_user;
@@ -67,6 +69,11 @@ export class q_mentor_info extends Model<q_mentor_infoAttributes, q_mentor_infoC
     about: {
       type: DataTypes.STRING(2048),
       allowNull: false
+    },
+    isAdopted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   }, {
     tableName: 'q_mentor_info',
